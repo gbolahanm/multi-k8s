@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t gbdotcom/react_test -f ./client/Dockerfile.dev ./client
+  - docker build -t gbdotcom/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true gbdotcom/react-test npm test
