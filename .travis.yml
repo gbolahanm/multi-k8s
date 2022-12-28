@@ -13,3 +13,11 @@ after_success:
   - docker build -t gbdotcom/multi-nginx ./nginx
   - docker build -t gbdotcom/multi-server ./server
   - docker build -t gbdotcom/multi-worker ./worker
+
+# Login to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
+# Take those images and push them to dockerhub
+  - docker push gbdotcom/multi-client
+  - docker push gbdotcom/multi-nginx
+  - docker push gbdotcom/multi-server
+  - docker push gbdotcom/multi-worker
